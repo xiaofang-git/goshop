@@ -5,7 +5,6 @@ import (
 )
 
 
-
 // 主页
 type MainController struct {
 	beego.Controller
@@ -13,8 +12,8 @@ type MainController struct {
 
 func (c *MainController) Get() {
 	c.TplName = "index.html"
+	c.Data["Title"] = "Gshop"
 }
-
 
 
 // 商品详情页
@@ -24,6 +23,7 @@ type ShopController struct {
 
 
 func (c *ShopController) Get() {
+	c.Data["Title"] = "Gshop"
 	c.TplName = "shop.html"
 }
 
@@ -34,6 +34,7 @@ type SingleController struct {
 }
 
 func (c *SingleController) Get() {
+	c.Data["Title"] = "Gshop"
 	c.TplName = "single-product.html"
 }
 
@@ -43,6 +44,7 @@ type CartController struct {
 }
 
 func (c *CartController) Get() {
+	c.Data["Title"] = "Gshop"
 	c.TplName = "cart.html"
 }
 
@@ -52,5 +54,6 @@ type CheckoutController struct {
 }
 
 func (c *CheckoutController) Get() {
+	c.Data["Title"] = "Gshop"
 	c.TplName = "checkout.html"
 }
