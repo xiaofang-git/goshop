@@ -58,11 +58,61 @@ func (c *CheckoutController) Get() {
 	c.TplName = "checkout.html"
 }
 
+
+// 登录相关处理逻辑
 type LoginController struct {
 	beego.Controller
 }
 
+// get
 func (c *LoginController) Get() {
-	c.Data["Title"] = "Gshop"
-	c.TplName = "login.html"
+
+		// 检查cookie
+	name := c.Ctx.GetCookie("name")
+
+	if name == "xiaofang@163.com" {
+		// cookie验证成功
+		c.TplName = "user.html"
+	}else{
+		// 验证失败
+		c.TplName = "login.html"
+	}
+}
+
+
+// post
+func (c *LoginController) Post() {
+	username := c.GetString("username")
+	passwd := c.GetString("passwd")
+	// 判断用户名密码是否正确
+	if username == "xiaofang@163.com" && passwd == "0805" {
+		// c.Ctx.WriteString("登录成功")
+
+		// 设置cookie
+		c.Ctx.SetCookie("name", username)
+		// c.TplName = "user_info.html"
+		c.Ctx.Redirect(302, "user.html")
+	}else{
+		c.Ctx.WriteString("用户名或密码错误")
+	}
+}
+
+
+// 用户信息
+type UserController struct {
+	beego.Controller
+}
+
+// get
+func (c *UserController) Get() {
+	// 检查cookie
+	name := c.Ctx.GetCookie("name")
+
+	if name == "xiaofang@163.com" {
+		// cookie验证成功
+		c.TplName = "user.html"
+	}else{
+		// 验证失败
+		c.Ctx.Redirect(302, "login.html")
+	}
 }
