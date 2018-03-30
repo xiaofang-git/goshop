@@ -1,0 +1,35 @@
+{{template "head.html" .}}
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>登录</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="content" style="margin:0 auto; width:1000px; height:500px; position:relative;">
+
+
+    <div class="login" style="position:absolute; top:50%;left:50%;margin-top:-100px;margin-left:-200px; width:400px; height: 200px; border-radius:10px;">
+        <form action="/login.html" method="post">
+            <div style=" margin-left:100px;margin-top:50px">
+                <p style="display:inline">用户名:</p>
+                <input type="text"/>
+            </div>
+            <div style="margin-left:100px;margin-top:20px">
+                <p style="display:inline">密 码:</p>
+                <input type="password"/>
+            </div>
+            <div style=" text-align:center;margin-top:20px">
+                <button type="submit">submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{{template "foot.html" .}}

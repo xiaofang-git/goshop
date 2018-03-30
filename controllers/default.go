@@ -57,3 +57,12 @@ func (c *CheckoutController) Get() {
 	c.Data["Title"] = "Gshop"
 	c.TplName = "checkout.html"
 }
+
+type LoginController struct {
+	beego.Controller
+}
+
+func (c *LoginController) Get() {
+	c.Data["Title"] = "Gshop"
+	c.TplName = "login.html"
+}

@@ -12,5 +12,6 @@ func init() {
 	beego.Router("/single-product.html", &controllers.SingleController{})
 	beego.Router("/cart.html", &controllers.CartController{})
 	beego.Router("/checkout.html", &controllers.CheckoutController{})
+	beego.Router("/login.html", &controllers.LoginController{})
 	
 }
